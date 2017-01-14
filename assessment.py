@@ -1,3 +1,5 @@
+#from collections import Counter
+
 """Dictionaries Assessment
 
 **IMPORTANT:** These problems are meant to be solved using
@@ -29,7 +31,13 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    return {}
+    words = phrase.split()
+
+    word_counts = {}
+    for word in words:
+        word_counts[word] = word_counts.get(word, 0) + 1
+
+    return word_counts
 
 
 def get_melon_price(melon_name):
@@ -54,7 +62,12 @@ def get_melon_price(melon_name):
         'No price found'
     """
 
-    return 0
+    melon_prices = {'Watermelon': 2.95, 'Cantaloupe': 2.50, 'Musk': 3.25, 'Christmas': 14.25}
+
+    if melon_name in melon_prices:
+        return melon_prices[melon_name]
+    else:
+        return "No price found"
 
 
 def word_length_sorted(words):
@@ -76,7 +89,21 @@ def word_length_sorted(words):
         [(2, ['ok']), (9, ['porcupine'])]
     """
 
-    return []
+    word_count_dict = {}
+
+    for word in words:
+        key_num = len(word)
+        if key_num in word_count_dict:
+            word_count_dict[key_num].append(word)
+        else:
+            word_count_dict[key_num] = [word]
+
+    word_count_list = []
+
+    for num, word_list in word_count_dict.items():
+        word_count_list.append((num, sorted(word_list)))
+
+    return sorted(word_count_list)
 
 
 def translate_to_pirate_talk(phrase):
