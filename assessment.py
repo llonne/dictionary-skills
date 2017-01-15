@@ -145,7 +145,21 @@ def translate_to_pirate_talk(phrase):
         'me swabbie be not a man!'
     """
 
-    return ""
+    pirate_tranlations = {'sir': 'matey', 'hotel': 'fleabag inn', 'student': 'swabbie',
+                          'man': 'matey', 'professor': 'foul blaggart', 'restaurant': 'galley',
+                          'your': 'yer', 'excuse': 'arr', 'students': 'swabbies', 'are': 'be',
+                          'restroom': 'head', 'my': 'me', 'is': 'be'}
+
+    phrase = phrase.split(" ")
+    pirate_phrase = []
+
+    for word in phrase:
+        if word in pirate_tranlations:
+            pirate_phrase.append(pirate_tranlations[word])
+        else:
+            pirate_phrase.append(word)
+
+    return " ".join(pirate_phrase)
 
 
 def kids_game(names):
@@ -193,7 +207,30 @@ def kids_game(names):
     a dictionary (with the super-fast lookup they provide) can help;
     good solutions here will definitely require a dictionary.
     """
+    # word_dict = {}
 
+    # for name in names:
+    #     if name[0] in word_dict:
+    #         word_dict[name[0]].append(name)
+    #     else:
+    #         word_dict[name[0]] = [name]
+    # #print word_dict.items()
+    # #while True:
+    # results = []
+    # #word_list = []
+    # first_word = names[0]
+    # results.append(first_word)
+    # last_letter = "a"
+    # last_letter = first_word[-1:]
+    # # while last_letter in word_dict.items():
+        # word_list = word_dict[last_letter]
+        # new_word = word_list[0:1]
+        # new_word_list = word_list[1:]
+        # word_dict[last_letter] = new_word_list
+        # results.append(new_word)
+        # last_letter = new_word[-1:]
+
+    # return results
     return []
 
 #####################################################################
